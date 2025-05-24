@@ -50,7 +50,7 @@ class DogController:
         }, 200
 
     def get_breeds(self, pagination: PaginationParams, search: Optional[SearchParams] = None) -> Tuple[Dict[str, Any], int]:
-        """Obtiene todas las razas de perros con paginación y búsqueda."""
+        """Gets all dog breeds with pagination and search."""
         try:
 
             if pagination.page < 1:
@@ -68,7 +68,7 @@ class DogController:
             return ApiResponse.error("Internal server error"), 500
 
     def get_breed(self, breed_id: str) -> Tuple[Dict[str, Any], int]:
-        """Obtiene una raza específica."""
+        """Gets a specific breed."""
         try:
             breed = self._dog_service.get_breed_by_id(breed_id)
             if not breed:
@@ -85,7 +85,7 @@ class DogController:
             return ApiResponse.error("Internal server error"), 500
 
     def get_facts(self) -> Tuple[Dict[str, Any], int]:
-        """Obtiene datos curiosos sobre perros."""
+        """Gets interesting facts about dogs."""
         try:
             facts = self._dog_service.get_all_facts()
             if not facts:
@@ -102,7 +102,7 @@ class DogController:
             return ApiResponse.error("Internal server error"), 500
 
     def get_groups(self, pagination: PaginationParams, search: Optional[SearchParams] = None) -> Tuple[Dict[str, Any], int]:
-        """Obtiene todos los grupos con paginación y búsqueda."""
+        """Gets all groups with pagination and search."""
         try:
             if pagination.page < 1:
                 pagination.page = 1
@@ -119,7 +119,7 @@ class DogController:
             return ApiResponse.error("Internal server error"), 500
 
     def get_group(self, group_id: str) -> Tuple[Dict[str, Any], int]:
-        """Obtiene un grupo específico."""
+        """Gets a specific group."""
         try:
             group = self._dog_service.get_group_by_id(group_id)
             if not group:
@@ -136,7 +136,7 @@ class DogController:
             return ApiResponse.error("Internal server error"), 500
 
     def get_group_details(self, group_id: str) -> Tuple[Dict[str, Any], int]:
-        """Obtiene las relaciones de un grupo."""
+        """Gets group relationships."""
         try:
             group = self._dog_service.get_group_details(group_id)
             if not group:
@@ -155,7 +155,7 @@ class DogController:
             return ApiResponse.error("Internal server error"), 500
 
     def get_breed_in_group(self, group_id: str, breed_id: str) -> Tuple[Dict[str, Any], int]:
-        """Obtiene una raza dentro de un grupo."""
+        """Gets a breed within a group."""
         try:
             breed = self._dog_service.get_breed_in_group(group_id, breed_id)
             if not breed:

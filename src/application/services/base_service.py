@@ -12,7 +12,7 @@ class BaseService(Generic[T], ABC):
         search_params: Optional[SearchParams] = None
     ) -> PaginatedResponse[T]:
         """
-        Obtiene todos los elementos con paginación y búsqueda
+        Gets all elements with pagination and search
         """
         pass
 
@@ -24,34 +24,34 @@ class BaseService(Generic[T], ABC):
         filters: Optional[dict] = None
     ) -> PaginatedResponse[T]:
         """
-        Realiza una búsqueda con paginación
+        Performs a search with pagination
         """
         pass
 
     @abstractmethod
     async def get_by_id(self, id: str) -> Optional[T]:
         """
-        Obtiene un elemento por su ID
+        Gets an element by its ID
         """
         pass
 
     @abstractmethod
     async def create(self, data: dict) -> T:
         """
-        Crea un nuevo elemento
+        Creates a new element
         """
         pass
 
     @abstractmethod
     async def update(self, id: str, data: dict) -> Optional[T]:
         """
-        Actualiza un elemento existente
+        Updates an existing element
         """
         pass
 
     @abstractmethod
     async def delete(self, id: str) -> bool:
         """
-        Elimina un elemento
+        Deletes an element
         """
         pass 
